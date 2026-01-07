@@ -1,0 +1,85 @@
+# Blockchain Configuration for Agri-Culture Platform
+# This file contains blockchain-specific settings for connecting to Ethereum networks
+
+blockchain:
+  enabled: true
+  
+  # Network Configuration
+  network:
+    # Options: sepolia, mainnet, localhost (for Hardhat local node)
+    name: sepolia
+    
+    # RPC Endpoint URLs
+    # For Sepolia testnet, you can use public RPC or services like Infura, Alchemy
+    # Replace with your own RPC URL
+    rpc-url: https://sepolia.infura.io/v3/YOUR_INFURA_PROJECT_ID
+    
+    # For local Hardhat development
+    # rpc-url: http://localhost:8545
+    
+    # Chain ID (11155111 for Sepolia, 1 for mainnet, 31337 for Hardhat)
+    chain-id: 11155111
+  
+  # Wallet Configuration
+  wallet:
+    # Private key for transaction signing (NEVER commit real private keys!)
+    # Use environment variables in production: ${BLOCKCHAIN_PRIVATE_KEY}
+    private-key: 0xYOUR_PRIVATE_KEY_HERE
+    
+    # Alternative: Use keystore file
+    # keystore-path: /path/to/keystore.json
+    # keystore-password: ${KEYSTORE_PASSWORD}
+  
+  # Smart Contract Addresses
+  contracts:
+    procurement-order:
+      # Address of deployed ProcurementOrder contract
+      # Update this after deploying to Sepolia
+      address: 0xYOUR_DEPLOYED_CONTRACT_ADDRESS
+      
+      # ABI is auto-loaded from web3j generated wrapper
+      # Deployment block for event filtering (optional, improves performance)
+      deployment-block: 0
+  
+  # Transaction Configuration
+  transaction:
+    # Gas price in Gwei (leave empty for automatic estimation)
+    gas-price-gwei: 
+    
+    # Gas limit for contract deployments
+    gas-limit-deploy: 3000000
+    
+    # Gas limit for contract interactions
+    gas-limit-interact: 500000
+    
+    # Transaction timeout in seconds
+    timeout-seconds: 120
+  
+  # Polling and Monitoring
+  polling:
+    # Interval for polling transaction receipts (milliseconds)
+    receipt-interval-ms: 3000
+    
+    # Maximum attempts for polling
+    max-attempts: 40
+  
+  # Event Listening
+  events:
+    # Enable event listening
+    enabled: true
+    
+    # Block confirmation depth before processing events
+    confirmation-blocks: 3
+    
+    # Event polling interval (milliseconds)
+    polling-interval-ms: 5000
+
+# OpenTelemetry Configuration
+otel:
+  enabled: false
+  exporter:
+    otlp:
+      endpoint: http://localhost:4317
+  resource:
+    attributes:
+      service.name: agri-culture-blockchain

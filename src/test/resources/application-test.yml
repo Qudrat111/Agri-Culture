@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: agri-culture-platform-test
+  
+  # H2 in-memory database for testing
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: 
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.H2Dialect
+  
+  # Embedded MongoDB for testing
+  data:
+    mongodb:
+      database: test
+  
+  # Disable Kafka for tests
+  kafka:
+    enabled: false
+  
+  # Disable Redis for tests
+  redis:
+    enabled: false
+
+# Disable blockchain for tests
+blockchain:
+  enabled: false
+
+# Disable rate limiting for tests
+agriculture:
+  rate-limit:
+    enabled: false
