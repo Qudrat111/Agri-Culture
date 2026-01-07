@@ -30,7 +30,7 @@ This platform implements a DDD-inspired modular monolith with the following key 
 
 ## Prerequisites
 
-- **Java 21** - Required for Spring Boot 3
+- **Java 17+** - Required for Spring Boot 3
 - **Maven 3.9+** - Build tool
 - **Docker & Docker Compose** - For infrastructure services
 - **Node.js 18+** - For Hardhat smart contract development

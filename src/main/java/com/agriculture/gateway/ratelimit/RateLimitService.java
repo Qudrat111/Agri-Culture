@@ -37,12 +37,12 @@ public class RateLimitService {
     @Value("${agriculture.rate-limit.default-refill-period:60}")
     private long defaultRefillPeriodSeconds;
     
-    private ProxyManager<String> proxyManager;
+    private ProxyManager<byte[]> proxyManager;
     
     /**
      * Initialize the proxy manager for distributed rate limiting.
      */
-    private synchronized ProxyManager<String> getProxyManager() {
+    private synchronized ProxyManager<byte[]> getProxyManager() {
         if (proxyManager == null) {
             // Create Redis client from connection factory
             String host = redisConnectionFactory.getHostName();
@@ -72,7 +72,7 @@ public class RateLimitService {
                 .build();
         };
         
-        return getProxyManager().builder().build(key, configSupplier);
+        return getProxyManager().builder().build(key.getBytes(), configSupplier);
     }
     
     /**

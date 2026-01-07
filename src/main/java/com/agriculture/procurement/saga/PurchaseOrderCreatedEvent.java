@@ -1,7 +1,6 @@
 package com.agriculture.procurement.saga;
 
 import com.agriculture.common.event.DomainEvent;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -14,7 +13,6 @@ import java.math.BigDecimal;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
-@AllArgsConstructor
 public class PurchaseOrderCreatedEvent extends DomainEvent {
     
     private String orderId;

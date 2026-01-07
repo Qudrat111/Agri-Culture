@@ -275,13 +275,13 @@ describe("ProcurementOrder", function () {
     it("Should check if order exists", async function () {
       const orderId = ethers.id("order-exists-001");
       
-      expect(await procurementOrder.orderExists(orderId)).to.be.false;
+      expect(await procurementOrder.doesOrderExist(orderId)).to.be.false;
       
       await procurementOrder.connect(buyer).createOrder(orderId, seller.address, {
         value: orderAmount
       });
       
-      expect(await procurementOrder.orderExists(orderId)).to.be.true;
+      expect(await procurementOrder.doesOrderExist(orderId)).to.be.true;
     });
 
     it("Should fail to get non-existent order", async function () {

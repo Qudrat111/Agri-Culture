@@ -232,7 +232,7 @@ contract ProcurementOrder {
      * @dev Check if order exists
      * @param orderId The order to check
      */
-    function orderExists(bytes32 orderId) external view returns (bool) {
+    function doesOrderExist(bytes32 orderId) external view returns (bool) {
         return orders[orderId].exists;
     }
 }
