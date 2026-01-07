@@ -1,0 +1,20 @@
+{
+  "name": "agri-culture",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "hardhat test",
+    "test:coverage": "hardhat coverage",
+    "compile": "hardhat compile",
+    "deploy:local": "hardhat run hardhat/scripts/deploy.js --network hardhat",
+    "deploy:sepolia": "hardhat run hardhat/scripts/deploy.js --network sepolia"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "hardhat": "^3.1.2"
+  }
+}
